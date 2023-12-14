@@ -1,23 +1,26 @@
-package com.example.blog.domain.post.entity;
+package com.example.blog.domain.member.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import java.lang.reflect.Member;
 import java.time.LocalDateTime;
 
 @Entity
-public class Post {
+@Getter
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
+    private String userId;
+    @Column(unique = true)
+    private String nickname;
+    private String email;
+    private String password;
 
-    @ManyToOne
-    private Member member;
-
-    private String title;
-    private String content;
+    private Boolean isActive;
 
     @CreatedDate
     private LocalDateTime created;
