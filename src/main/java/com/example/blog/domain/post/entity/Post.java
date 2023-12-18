@@ -1,6 +1,12 @@
 package com.example.blog.domain.post.entity;
 
+import com.example.blog.global.jpa.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -8,10 +14,11 @@ import java.lang.reflect.Member;
 import java.time.LocalDateTime;
 
 @Entity
-public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Getter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Post extends BaseEntity {
 
     @ManyToOne
     private Member member;
@@ -19,9 +26,4 @@ public class Post {
     private String title;
     private String content;
 
-    @CreatedDate
-    private LocalDateTime created;
-
-    @LastModifiedDate
-    private LocalDateTime modified;
 }

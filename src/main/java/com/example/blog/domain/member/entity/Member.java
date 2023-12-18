@@ -1,5 +1,6 @@
 package com.example.blog.domain.member.entity;
 
+import com.example.blog.global.jpa.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
@@ -9,12 +10,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
-public class Member {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Member extends BaseEntity {
+
     @Column(unique = true)
-    private String userId;
+    private String username;
     @Column(unique = true)
     private String nickname;
     private String email;
@@ -22,9 +21,5 @@ public class Member {
 
     private Boolean isActive;
 
-    @CreatedDate
-    private LocalDateTime created;
 
-    @LastModifiedDate
-    private LocalDateTime modified;
 }
