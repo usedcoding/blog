@@ -14,11 +14,9 @@ public class PostController {
     private final PostService postService;
     @GetMapping("/list")
     public String list() {
-        return"post/list";
+        return"post_list";
     }
 
-    @GetMapping("/list")
-    public String list(Model model) {}
 
 
 

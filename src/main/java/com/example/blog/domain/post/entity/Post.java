@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 public class Post extends BaseEntity {
 
     @ManyToOne
-    private Member member;
+    private Member author;
 
     private String title;
     private String content;
