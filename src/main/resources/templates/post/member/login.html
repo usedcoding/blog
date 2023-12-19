@@ -1,0 +1,20 @@
+<div>로그인</div>
+<form th:action="@{/member/login}" method="post">
+    <div>
+        <span>유저 아이디</span>
+        <input type="text" name="username" placeholder="유저 아이디">
+    </div>
+    <!-- placeholder: input 칸 안에 글자를 넣을수 있게 한다.   -->
+    <div>
+        <span>비밀번호</span>
+        <input type="text" name="password" placeholder="비밀번호">
+    </div>
+    <br>
+    <div>
+        <button type="submit"> 로그인</button>
+    </div>
+    
+    <div>
+        <a href="/login/oauth2/code/kakao">카카오 로그인</a>
+    </div>
+</form>

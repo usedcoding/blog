@@ -1,0 +1,28 @@
+<div>회원가입</div>
+<form th:action="@{/member/join}" method="post">
+    <div>
+        <span>유저 아이디</span>
+        <input type="text" name="username" placeholder="유저 아이디">
+    </div>
+    <div>
+        <span>닉네임</span>
+        <input type="text" name="nickname" placeholder="닉네임">
+    </div>
+    <div>
+        <span>이메일</span>
+        <input type="text" name="email" placeholder="이메일">
+    </div>
+    <!-- placeholder: input 칸 안에 글자를 넣을수 있게 한다.   -->
+    <div>
+        <span>비밀번호</span>
+        <input type="password" name="password" placeholder="비밀번호">
+    </div>
+    <div>
+        <span>비밀번호 확인</span>
+        <input type="password" name="password" placeholder="비밀번호 확인">
+    </div>
+    <br>
+    <div>
+        <button type="submit"> 로그인</button>
+    </div>
+</form>

@@ -13,6 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
+//로그인 여부 검증 annotation
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
@@ -21,11 +22,24 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
                         .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
+                .formLogin(
+                        formLogin -> formLogin
+                                .loginPage("/member/login")
+                                .defaultSuccessUrl("/")
+                )
+                .logout(
+                        logout -> logout
+                                .logoutUrl("/member/logout")
+                                .logoutSuccessUrl("/")
+                                .invalidateHttpSession(true)
+                )
         ;
+
         return http.build();
     }
 
 
+    //비밀 번호 암호화
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
