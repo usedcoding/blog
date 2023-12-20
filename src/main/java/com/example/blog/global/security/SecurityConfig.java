@@ -33,6 +33,10 @@ public class SecurityConfig {
                                 .logoutSuccessUrl("/")
                                 .invalidateHttpSession(true)
                 )
+                .oauth2Login(
+                        oauth2Login -> oauth2Login
+                                .loginPage("/member/login")
+                )
         ;
 
         return http.build();
